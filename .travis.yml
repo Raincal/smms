@@ -1,0 +1,23 @@
+sudo: false
+language: node_js
+node_js:
+  - "7"
+
+script:
+  - yarn run test
+  - yarn run build
+
+deploy:
+  provider: firebase
+  skip_cleanup: true
+  token: ${FIREBASE_TOKEN}
+
+notifications:
+  email:
+    on_failure: change
+    on_success: change
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
