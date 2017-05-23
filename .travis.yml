@@ -4,6 +4,7 @@ node_js:
   - "7"
 
 script:
+  - yarn run lint
   - yarn run test
   - yarn run build
 
@@ -11,6 +12,8 @@ deploy:
   provider: firebase
   skip_cleanup: true
   token: ${FIREBASE_TOKEN}
+  on:
+    tags: true
 
 notifications:
   email:
