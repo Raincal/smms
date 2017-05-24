@@ -1,6 +1,6 @@
 {
   "name": "smms",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "Raincal",
     "email": "cyj94228@gmail.com"
@@ -21,7 +21,7 @@
     "install-node": "6.9.2"
   },
   "dependencies": {
-    "antd": "^2.10.1",
+    "antd": "^2.10.2",
     "babel-plugin-import": "^1.1.1",
     "babel-runtime": "^6.9.2",
     "date-fns": "^1.28.5",
