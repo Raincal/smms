@@ -41,8 +41,8 @@ class CopyIcon extends Component {
             style={{
               color: copied ? '#00a854' : '',
               cursor: 'pointer',
-              width: 20,
-              height: 20,
+              width: 15,
+              height: 15,
               marginLeft: 3,
             }}
           />

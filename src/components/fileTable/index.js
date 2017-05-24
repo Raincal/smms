@@ -61,8 +61,8 @@ class FileTable extends Component {
         key: 'filename',
       },
       {
-        title: 'Url',
-        dataIndex: 'url',
+        title: 'Url ( Prefix: https://ooo.0o0.ooo )',
+        dataIndex: 'path',
         key: 'url',
         render: (text, record) => <FileLink text={text} record={record} />,
       },
@@ -116,6 +116,7 @@ class FileTable extends Component {
         </div>
         <Table
           loading={loading}
+          scroll={{ x: 768 }}
           rowSelection={rowSelection}
           rowKey={record => record.hash}
           dataSource={this.filteredFilelist(filelist)}

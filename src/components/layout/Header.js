@@ -8,7 +8,7 @@ const Header = ({ location }) => (
       <Link to="/"><Icon type="home" />Home</Link>
     </Menu.Item>
     <Menu.Item key="/dashboard">
-      <Link to="/dashboard"><Icon type="clock-circle-o" />Dashboard</Link>
+      <Link to="/dashboard"><Icon type="laptop" />Dashboard</Link>
     </Menu.Item>
     <Menu.Item key="/about">
       <Link to="/about"><Icon type="appstore" />About</Link>
