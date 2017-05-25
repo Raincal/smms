@@ -83,7 +83,7 @@ export default {
       }
     },
 
-    *deleteSelected({ payload: { selectedRowKeys, selectedRows } }, { put }) {
+    *selectedDelete({ payload: { selectedRowKeys, selectedRows } }, { put }) {
       yield _.map(function* _delete(item) {
         const { hash, filename } = item
         yield put({

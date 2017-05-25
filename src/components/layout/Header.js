@@ -11,7 +11,7 @@ const Header = ({ location }) => (
       <Link to="/dashboard"><Icon type="laptop" />Dashboard</Link>
     </Menu.Item>
     <Menu.Item key="/about">
-      <Link to="/about"><Icon type="appstore" />About</Link>
+      <Link to="/about"><Icon type="appstore-o" />About</Link>
     </Menu.Item>
     <Menu.Item key="github">
       <a
@@ -19,6 +19,7 @@ const Header = ({ location }) => (
         target="_blank"
         rel="noopener noreferrer"
       >
+        <Icon type="code-o" />
         Source Code
       </a>
     </Menu.Item>
