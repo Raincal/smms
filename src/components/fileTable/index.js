@@ -39,7 +39,7 @@ const FileTable = ({
       render: text => <div>{formatBytes(text)}</div>,
     },
     {
-      title: 'Published Time',
+      title: 'Time Uploaded',
       dataIndex: 'timestamp',
       key: 'timestamp',
       render: text => <div>{format(text * 1000, 'YYYY-MM-DD HH:mm:ss')}</div>,

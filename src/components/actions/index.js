@@ -25,12 +25,12 @@ const Actions = ({ selectedRowKeys, selectedRows, onSelectedDelete }) => {
     <div style={{ margin: '16px 0' }}>
       <DeleteButton {...deleteButtonProps} />
 
-      <CopyButton {...copyButtonProps} type="link">Copy Links</CopyButton>
+      <CopyButton {...copyButtonProps} type="link">Copy Link</CopyButton>
 
-      <CopyButton {...copyButtonProps} type="markdown">Copy MarkDown</CopyButton>
+      <CopyButton {...copyButtonProps} type="markdown">Copy Markdown</CopyButton>
 
       <span style={{ marginLeft: 8 }}>
-        {hasSelected ? `Selected ${selectedRowKeys.length} images` : ''}
+        {hasSelected ? `${selectedRowKeys.length} images selected` : ''}
       </span>
     </div>
   )

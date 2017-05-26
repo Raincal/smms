@@ -18,18 +18,14 @@ const props = {
     'X-Requested-With': null,
   },
   beforeUpload(file) {
-    const isJPEG = file.type === 'image/jpeg',
-      isJPG = file.type === 'image/jpg',
-      isPNG = file.type === 'image/png',
-      isGIF = file.type === 'image/gif',
-      isPic = isJPG || isJPEG || isPNG || isGIF,
+    const isPic = /^(?:image\/jpe?g|image\/png|image\/gif|image\/bmp)$/i.test(file.type),
       isSmall = file.size < 1024 * 1024 * 5,
       isPass = isPic && isSmall
 
     if (!isPic) {
-      message.error('只能上传格式为 JPG/JPEG/PNG/GIF 的图片！', 3)
+      message.error('File not supported!', 3)
     } else if (!isSmall) {
-      message.error('只能上传小于5M的图片！', 3)
+      message.error('Your picture is larger than 5MB!', 3)
     }
 
     return isPass

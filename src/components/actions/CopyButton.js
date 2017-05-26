@@ -9,7 +9,7 @@ const styles = {
 const CopyButton = ({ hasSelected, links, type, children }) => {
   let str = ''
   links.map((link) => {
-    link = type === 'markdown' ? `![](${link})` : link
+    link = type === 'markdown' ? `![smms](${link})` : link
     str += `${link}\n`
     return str
   })

@@ -14,7 +14,7 @@ const FileLink = ({ text, record }) => (
     />
     <CopyIcon
       placement="topLeft"
-      title="Copy MarkDown"
+      title="Copy Markdown"
       type="copy"
       text={`![${record.filename}](${PREFIX}${text})`}
     />
