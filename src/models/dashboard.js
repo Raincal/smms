@@ -10,6 +10,7 @@ export default {
 
   state: {
     filelist: [],
+    queryList: [],
     selectedRowKeys: [],
     selectedRows: [],
   },
@@ -22,6 +23,15 @@ export default {
           _.uniqBy('hash'),
           _.orderBy(['timestamp'], ['desc']),
         )(data),
+      }
+    },
+
+    query(state, { payload: { query } }) {
+      const filename = query.filename || ''
+      return {
+        ...state,
+        queryList: _.filter(
+          item => item.filename.toUpperCase().indexOf(filename.toUpperCase()) > -1)(state.filelist),
       }
     },
 
@@ -57,7 +67,7 @@ export default {
 
   effects: {
     fetch: [
-      function* fetch(action, { call, put }) {
+      function* fetch({ payload: { query } }, { call, put }) {
         const uploadlist = yield loadLocalState('smms:uploadlist')
         const { filelist = [] } = yield loadState('smms:dashboard')
         const { data: { data } } = yield call(fileService.fetch)
@@ -66,6 +76,12 @@ export default {
           type: 'save',
           payload: {
             data: [...uploadlist, ...filelist, ...responseData],
+          },
+        })
+        yield put({
+          type: 'query',
+          payload: {
+            query,
           },
         })
       },
@@ -97,9 +113,14 @@ export default {
 
   subscriptions: {
     setup({ dispatch, history }) {
-      return history.listen(({ pathname }) => {
+      return history.listen(({ pathname, query }) => {
         if (pathname === '/dashboard') {
-          dispatch({ type: 'fetch' })
+          dispatch({
+            type: 'fetch',
+            payload: {
+              query,
+            },
+          })
         }
       })
     },

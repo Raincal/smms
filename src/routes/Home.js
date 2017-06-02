@@ -1,7 +1,7 @@
-import React from 'react';
-import { connect } from 'dva';
+import React from 'react'
+import { connect } from 'dva'
 
-import PictureUploader from '../components/PictureUploader';
+import PictureUploader from '../components/PictureUploader'
 
 const Home = props => (
   <div>
@@ -14,4 +14,4 @@ const mapStateToProps = ({ uploadlist }) => {
   }
 }
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(Home)

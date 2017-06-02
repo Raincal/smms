@@ -1,15 +1,16 @@
 import React from 'react'
 import { connect } from 'dva'
+import { routerRedux } from 'dva/router'
 import _ from 'lodash/fp'
 
 import FileTable from '../components/fileTable'
 import Actions from '../components/actions'
 
 const Dashboard = ({ dispatch, dashboard, loading }) => {
-  const { filelist, selectedRowKeys, selectedRows } = dashboard
+  const { queryList, selectedRowKeys, selectedRows } = dashboard
   const filelistProps = {
     dispatch,
-    filelist,
+    queryList,
     selectedRowKeys,
     selectedRows,
     loading: loading.models.dashboard,
@@ -39,8 +40,14 @@ const Dashboard = ({ dispatch, dashboard, loading }) => {
         payload: { selectedRowKeys, selectedRows },
       })
     },
-
-
+    onFilterChange(fields) {
+      dispatch(routerRedux.push({
+        pathname: location.pathname,
+        query: {
+          ...fields,
+        },
+      }))
+    },
   }
 
   return (

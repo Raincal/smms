@@ -8,7 +8,7 @@ import { formatBytes } from '../../utils'
 
 const FileTable = ({
   loading,
-  filelist,
+  queryList,
   selectedRowKeys,
   onSelectChange,
   onDelete,
@@ -68,7 +68,7 @@ const FileTable = ({
       scroll={{ x: 768 }}
       rowSelection={rowSelection}
       rowKey={record => record.hash}
-      dataSource={filteredFilelist(filelist)}
+      dataSource={filteredFilelist(queryList)}
       columns={columns}
       locale={{
         emptyText: <span><Icon type="frown-o" />No Data</span>,

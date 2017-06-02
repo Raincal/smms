@@ -1,8 +1,8 @@
 import dva from 'dva'
 import { message } from 'antd'
 import { browserHistory } from 'dva/router'
-import createLoading from 'dva-loading';
-import { persistStore, autoRehydrate, createPersistor } from 'redux-persist';
+import createLoading from 'dva-loading'
+import { persistStore, autoRehydrate, createPersistor } from 'redux-persist'
 import localForage from 'localforage'
 
 import { config } from './utils/localForage'
@@ -12,7 +12,7 @@ const app = dva({
   history: browserHistory,
   extraEnhancers: [autoRehydrate()],
   onError(e) {
-    message.error(e.message, 3);
+    message.error(e.message, 3)
   },
 })
 
