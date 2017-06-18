@@ -35,7 +35,7 @@ const Actions = ({ selectedRowKeys, selectedRows, onSelectedDelete, onFilterChan
   }
 
   return (
-    <Row gutter={8} style={{ marginTop: 16 }}>
+    <Row style={{ marginTop: 16 }}>
       <Col {...ColProps} xl={4} md={6}>
         <Filter {...filterProps} />
       </Col>

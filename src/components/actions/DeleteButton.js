@@ -3,6 +3,10 @@ import { Button, Modal } from 'antd'
 
 const confirm = Modal.confirm
 
+const styles = {
+  marginLeft: 8,
+}
+
 const DeleteButton = ({
   hasSelected,
   onSelectedDelete,
@@ -21,7 +25,12 @@ const DeleteButton = ({
   }
 
   return (
-    <Button type="danger" disabled={!hasSelected} onClick={showConfirm}>
+    <Button
+      type="danger"
+      style={styles}
+      disabled={!hasSelected}
+      onClick={showConfirm}
+    >
       Delete
     </Button>
   )
