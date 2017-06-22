@@ -47,7 +47,7 @@
     "eslint-plugin-react": "^7.1.0",
     "expect": "^1.20.2",
     "html-webpack-plugin": "^2.28.0",
-    "husky": "^0.13.4",
+    "husky": "^0.14.0",
     "preload-webpack-plugin": "^1.2.2",
     "redbox-react": "^1.4.2",
     "roadhog": "^0.6.0",
