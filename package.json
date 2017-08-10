@@ -1,6 +1,6 @@
 {
   "name": "smms",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": {
     "name": "Raincal",
     "email": "cyj94228@gmail.com"
@@ -12,6 +12,7 @@
   "private": true,
   "scripts": {
     "start": "roadhog server",
+    "start:linux": "BROWSER=none roadhog server",
     "build": "roadhog build",
     "test": "roadhog test",
     "lint": "eslint --ext .js src test",
@@ -21,9 +22,8 @@
     "install-node": "6.9.2"
   },
   "dependencies": {
-    "antd": "^2.11.2",
-    "babel-plugin-import": "^1.2.1",
-    "babel-runtime": "^6.23.0",
+    "antd": "^2.12.5",
+    "babel-runtime": "^6.25.0",
     "date-fns": "^1.28.5",
     "dva": "^1.2.1",
     "dva-loading": "^0.2.1",
@@ -32,25 +32,22 @@
     "react": "^15.6.1",
     "react-copy-to-clipboard": "^5.0.0",
     "react-dom": "^15.6.1",
-    "redux-persist": "^4.8.2"
+    "redux-persist": "^4.8.3"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "babel-plugin-dva-hmr": "^0.3.2",
+    "babel-plugin-import": "^1.3.1",
     "babel-plugin-lodash": "^3.2.11",
     "babel-plugin-transform-runtime": "^6.23.0",
-    "ejs-loader": "^0.3.0",
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb": "^15.0.1",
-    "eslint-plugin-import": "^2.6.1",
-    "eslint-plugin-jsx-a11y": "^5.1.0",
-    "eslint-plugin-react": "^7.1.0",
+    "eslint": "^3.12.2",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^7.2.0",
     "expect": "^1.20.2",
-    "html-webpack-plugin": "^2.29.0",
-    "husky": "^0.14.2",
-    "preload-webpack-plugin": "^1.2.2",
-    "redbox-react": "^1.4.2",
-    "roadhog": "^0.6.0",
-    "webpack-chunk-hash": "^0.4.0"
+    "husky": "^0.14.3",
+    "redbox-react": "^1.5.0",
+    "roadhog": "^1.0.2"
   }
 }

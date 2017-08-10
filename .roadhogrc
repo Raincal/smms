@@ -1,5 +1,6 @@
 {
   "entry": "src/index.js",
+  "hash": true,
   "proxy": {
     "/api": {
       "target": "https://sm.ms/api",
