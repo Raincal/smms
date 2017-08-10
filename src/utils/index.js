@@ -4,7 +4,7 @@ export const parseHTML = (data) => {
     const wrapper = document.createElement('div')
     wrapper.innerHTML = data
     const result = wrapper.getElementsByClassName('bs-callout')[0].textContent
-    code = result && (result === 'delete success' || result === 'File already deleted')
+    code = result && (result === 'File delete success.' || result === 'File already deleted.')
       ? 'success'
       : 'fail'
   } else code = 'fail'

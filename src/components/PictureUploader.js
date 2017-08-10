@@ -13,7 +13,7 @@ const props = {
     showRemoveIcon: false,
   },
   listType: 'picture',
-  action: 'https://sm.ms/api/upload',
+  action: '/api/upload',
   headers: {
     'X-Requested-With': null,
   },
