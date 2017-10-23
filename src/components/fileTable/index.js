@@ -45,7 +45,7 @@ const FileTable = ({
       render: text => <div>{format(text * 1000, 'YYYY-MM-DD HH:mm:ss')}</div>,
     },
     {
-      title: 'Actions',
+      title: 'Operation',
       render: (text, record) => (
         <Popconfirm
           title="Delete?"

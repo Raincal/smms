@@ -1,5 +1,6 @@
 import _ from 'lodash/fp'
 import { message } from 'antd'
+import queryString from 'query-string'
 
 import * as fileService from '../services/filelist'
 import { loadState, loadLocalState } from '../utils/localForage'
@@ -113,7 +114,8 @@ export default {
 
   subscriptions: {
     setup({ dispatch, history }) {
-      return history.listen(({ pathname, query }) => {
+      return history.listen(({ pathname, search }) => {
+        const query = queryString.parse(search)
         if (pathname === '/dashboard') {
           dispatch({
             type: 'fetch',

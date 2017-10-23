@@ -13,7 +13,7 @@ const ColProps = {
   },
 }
 
-const Actions = ({ selectedRowKeys, selectedRows, onSelectedDelete, onFilterChange }) => {
+const Operation = ({ selectedRowKeys, selectedRows, onSelectedDelete, onFilterChange }) => {
   const hasSelected = selectedRowKeys.length > 0
 
   const links = selectedRows.map(item => item.url)
@@ -50,4 +50,4 @@ const Actions = ({ selectedRowKeys, selectedRows, onSelectedDelete, onFilterChan
     </Row>
   )
 }
-export default Actions
+export default Operation

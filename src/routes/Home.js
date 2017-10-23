@@ -2,11 +2,13 @@ import React from 'react'
 import { connect } from 'dva'
 
 import PictureUploader from '../components/PictureUploader'
+import MainLayout from '../components/layout'
 
 const Home = props => (
-  <div>
+  <MainLayout location={props.location}>
     <PictureUploader {...props} />
-  </div>)
+  </MainLayout>
+)
 
 const mapStateToProps = ({ uploadlist }) => {
   return {

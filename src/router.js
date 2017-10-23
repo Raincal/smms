@@ -1,51 +1,34 @@
 import React from 'react'
-import { Router } from 'dva/router'
-
-import App from './routes/App'
-
-const cached = {}
-const registerModel = (app, model) => {
-  if (!cached[model.namespace]) {
-    app.model(model)
-    cached[model.namespace] = 1
-  }
-}
+import { Router, Switch, Route } from 'dva/router'
+import dynamic from 'dva/dynamic'
 
 const RouterConfig = ({ history, app }) => {
-  const routes = [
-    {
-      path: '/',
-      component: App,
-      getIndexRoute(nextState, cb) {
-        require.ensure([], (require) => {
-          registerModel(app, require('./models/uploadlist'))
-          cb(null, { component: require('./routes/Home') })
-        }, 'index')
-      },
-      childRoutes: [
-        {
-          path: '/dashboard',
-          getComponent(nextState, cb) {
-            require.ensure([], (require) => {
-              registerModel(app, require('./models/dashboard'))
-              registerModel(app, require('./models/uploadlist'))
-              cb(null, require('./routes/Dashboard'))
-            }, 'dashboard')
-          },
-        },
-        {
-          path: '/about',
-          getComponent(nextState, cb) {
-            require.ensure([], (require) => {
-              cb(null, require('./routes/About'))
-            }, 'about')
-          },
-        },
-      ],
-    },
-  ]
+  const Home = dynamic({
+    app,
+    models: () => [import('./models/uploadlist')],
+    component: () => import('./routes/Home'),
+  })
 
-  return <Router history={history} routes={routes} />
+  const Dashboard = dynamic({
+    app,
+    models: () => [import('./models/dashboard'), import('./models/uploadlist')],
+    component: () => import('./routes/Dashboard'),
+  })
+
+  const AboutPage = dynamic({
+    app,
+    component: () => import('./routes/About'),
+  })
+
+  return (
+    <Router history={history}>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/about" component={AboutPage} />
+      </Switch>
+    </Router>
+  )
 }
 
 export default RouterConfig

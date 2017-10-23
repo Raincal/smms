@@ -1,12 +1,11 @@
 import React from 'react'
 
-import { Layout } from '../components'
+import Header from './Header'
+import Footer from './Footer'
 
-import styles from './App.less'
+import styles from './MainLayout.less'
 
-const { Header, Footer } = Layout
-
-const App = ({ children, location }) => {
+const MainLayout = ({ children, location }) => {
   return (
     <div className={styles.layout}>
       <Header location={location} />
@@ -18,4 +17,4 @@ const App = ({ children, location }) => {
   )
 }
 
-export default App
+export default MainLayout

@@ -4,9 +4,10 @@ import { routerRedux } from 'dva/router'
 import _ from 'lodash/fp'
 
 import FileTable from '../components/fileTable'
-import Actions from '../components/actions'
+import Operation from '../components/operation'
+import MainLayout from '../components/layout'
 
-const Dashboard = ({ dispatch, dashboard, loading }) => {
+const Dashboard = ({ location, dispatch, dashboard, loading }) => {
   const { queryList, selectedRowKeys, selectedRows } = dashboard
   const filelistProps = {
     dispatch,
@@ -31,7 +32,7 @@ const Dashboard = ({ dispatch, dashboard, loading }) => {
     },
   }
 
-  const actionsProps = {
+  const operationProps = {
     selectedRowKeys,
     selectedRows,
     onSelectedDelete(selectedRowKeys, selectedRows) {
@@ -51,10 +52,10 @@ const Dashboard = ({ dispatch, dashboard, loading }) => {
   }
 
   return (
-    <div>
-      <Actions {...actionsProps} />
+    <MainLayout location={location}>
+      <Operation {...operationProps} />
       <FileTable {...filelistProps} />
-    </div>
+    </MainLayout>
   )
 }
 
