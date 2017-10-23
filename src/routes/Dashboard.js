@@ -5,7 +5,6 @@ import _ from 'lodash/fp'
 
 import FileTable from '../components/fileTable'
 import Operation from '../components/operation'
-import MainLayout from '../components/layout'
 
 const Dashboard = ({ location, dispatch, dashboard, loading }) => {
   const { queryList, selectedRowKeys, selectedRows } = dashboard
@@ -52,10 +51,10 @@ const Dashboard = ({ location, dispatch, dashboard, loading }) => {
   }
 
   return (
-    <MainLayout location={location}>
+    <div>
       <Operation {...operationProps} />
       <FileTable {...filelistProps} />
-    </MainLayout>
+    </div>
   )
 }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Router, Switch, Route } from 'dva/router'
 import dynamic from 'dva/dynamic'
+import MainLayout from './components/layout'
 
 const RouterConfig = ({ history, app }) => {
   const Home = dynamic({
@@ -22,11 +23,13 @@ const RouterConfig = ({ history, app }) => {
 
   return (
     <Router history={history}>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/about" component={AboutPage} />
-      </Switch>
+      <MainLayout location={location}>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/about" component={AboutPage} />
+        </Switch>
+      </MainLayout>
     </Router>
   )
 }
