@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'dva'
 import { routerRedux } from 'dva/router'
 import _ from 'lodash/fp'
+import queryString from 'query-string'
 
 import FileTable from '../components/fileTable'
 import Operation from '../components/operation'
@@ -41,12 +42,11 @@ const Dashboard = ({ location, dispatch, dashboard, loading }) => {
       })
     },
     onFilterChange(fields) {
+      const search = queryString.stringify(fields)
       dispatch(
         routerRedux.push({
           pathname: location.pathname,
-          query: {
-            ...fields,
-          },
+          search,
         })
       )
     },
