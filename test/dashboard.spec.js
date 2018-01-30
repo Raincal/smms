@@ -1,4 +1,3 @@
-import expect from 'expect'
 import { effects } from 'dva/saga'
 
 import dashboard from '../src/models/dashboard'
@@ -6,7 +5,7 @@ import * as fileService from '../src/services/filelist'
 
 describe('Dashboard Model', () => {
   it('loads', () => {
-    expect(dashboard).toExist()
+    expect(dashboard).toBeDefined()
   })
 
   describe('reducer', () => {
@@ -14,14 +13,14 @@ describe('Dashboard Model', () => {
       const reducers = dashboard.reducers
       const reducer = reducers.save
       const state = {
-        filelist: [],
+        filelist: []
       }
       expect(
         reducer(state, {
           payload: {
-            data: [{ filename: 'smms' }],
-          },
-        }),
+            data: [{ filename: 'smms' }]
+          }
+        })
       ).toEqual({ filelist: [{ filename: 'smms' }] })
     })
   })
@@ -35,7 +34,7 @@ describe('Dashboard Model', () => {
       const hash = 'QMusNXY7PJ1KIfj'
       const generator = saga(
         { payload: { hash, filename: 'smmstest.jpeg' } },
-        { call, put },
+        { call, put }
       )
 
       const next = generator.next()

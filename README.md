@@ -14,16 +14,17 @@ $ yarn
 ### Start
 
 ```bash
-$ npm start
+$ yarn start
 ```
 
 ### Build for production
 
 ```bash
-$ npm run build
+$ yarn build
 ```
 
 #### Configure nginx
+
 ```
 location ^~/api/ {
     proxy_pass   https://sm.ms/api/;

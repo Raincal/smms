@@ -9,15 +9,8 @@
     }
   },
   "extraBabelPlugins": [
-    "transform-runtime",
     ["lodash"],
     ["import", { "libraryName": "antd", "style": true }]
   ],
-  "env": {
-    "development": {
-      "extraBabelPlugins": [
-        "dva-hmr"
-      ]
-    }
-  }
+  "html": { "template": "./src/index.ejs" }
 }

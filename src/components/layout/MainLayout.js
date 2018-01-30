@@ -5,13 +5,11 @@ import Footer from './Footer'
 
 import styles from './MainLayout.less'
 
-const MainLayout = ({ children, location }) => {
+const MainLayout = ({ children }) => {
   return (
     <div className={styles.layout}>
-      <Header location={location} />
-      <div className={styles.content}>
-        {children}
-      </div>
+      <Header />
+      <div className={styles.content}>{children}</div>
       <Footer />
     </div>
   )

@@ -10,15 +10,17 @@ const props = {
   multiple: true,
   accept: 'image/*',
   showUploadList: {
-    showRemoveIcon: false,
+    showRemoveIcon: false
   },
   listType: 'picture',
   action: '/api/upload',
   headers: {
-    'X-Requested-With': null,
+    'X-Requested-With': null
   },
   beforeUpload(file) {
-    const isPic = /^(?:image\/jpe?g|image\/png|image\/gif|image\/bmp)$/i.test(file.type),
+    const isPic = /^(?:image\/jpe?g|image\/png|image\/gif|image\/bmp)$/i.test(
+        file.type
+      ),
       isSmall = file.size < 1024 * 1024 * 5,
       isPass = isPic && isSmall
 
@@ -29,36 +31,39 @@ const props = {
     }
 
     return isPass
-  },
+  }
 }
 
 class PictureUploader extends Component {
   state = {
-    fileList: this.props.uploadlist,
+    fileList: this.props.uploadlist
   }
 
-  handleChange = (info) => {
-    let fileList = info.fileList
-    const response = info.file.response
+  handleChange = ({ file, fileList }) => {
+    const response = file.response
     fileList = fileList.slice(-100)
     this.setState({ fileList })
-    if (response && response.code === 'success') {
-      const { uid, name } = info.file
-      this.props.dispatch({
-        type: 'uploadlist/upload',
-        payload: {
-          data: {
-            ...response.data,
-            filename: name,
-            visible: true,
-            uid,
-            name,
-          },
-        },
-      })
-      message.success(`${info.file.name} file uploaded successfully.`, 3)
-    } else if (status === 'error') {
-      message.error(`${info.file.name} file upload failed.`, 3)
+    if (response) {
+      if (response.code === 'success') {
+        const { uid, name } = file
+        this.props.dispatch({
+          type: 'uploadlist/upload',
+          payload: {
+            data: {
+              ...response.data,
+              filename: name,
+              visible: true,
+              uid,
+              name
+            }
+          }
+        })
+        message.success(`${file.name} file uploaded successfully.`, 3)
+      } else if (response.status === 'error') {
+        message.error(`${file.name} file upload failed.`, 3)
+      } else {
+        message.error('Server Error.', 3)
+      }
     }
   }
 
