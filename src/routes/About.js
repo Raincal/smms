@@ -14,6 +14,6 @@ const About = () => (
       <li>其他违反香港法律的图片</li>
     </ul>
   </div>
-  )
+)
 
 export default About

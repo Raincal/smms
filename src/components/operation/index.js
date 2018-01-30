@@ -13,7 +13,12 @@ const ColProps = {
   },
 }
 
-const Operation = ({ selectedRowKeys, selectedRows, onSelectedDelete, onFilterChange }) => {
+const Operation = ({
+  selectedRowKeys,
+  selectedRows,
+  onSelectedDelete,
+  onFilterChange,
+}) => {
   const hasSelected = selectedRowKeys.length > 0
 
   const links = selectedRows.map(item => item.url)
@@ -41,8 +46,12 @@ const Operation = ({ selectedRowKeys, selectedRows, onSelectedDelete, onFilterCh
       </Col>
       <Col {...ColProps} xl={6} md={12}>
         <DeleteButton {...deleteButtonProps} />
-        <CopyButton {...copyButtonProps} type="link">Copy Link</CopyButton>
-        <CopyButton {...copyButtonProps} type="markdown">Copy Markdown</CopyButton>
+        <CopyButton {...copyButtonProps} type="link">
+          Copy Link
+        </CopyButton>
+        <CopyButton {...copyButtonProps} type="markdown">
+          Copy Markdown
+        </CopyButton>
         <span style={{ marginLeft: 8 }}>
           {hasSelected ? `${selectedRowKeys.length} images selected` : ''}
         </span>

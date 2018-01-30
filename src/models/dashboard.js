@@ -22,7 +22,7 @@ export default {
         ...state,
         filelist: _.compose(
           _.uniqBy('hash'),
-          _.orderBy(['timestamp'], ['desc']),
+          _.orderBy(['timestamp'], ['desc'])
         )(data),
       }
     },
@@ -32,12 +32,14 @@ export default {
       return {
         ...state,
         queryList: _.filter(
-          item => item.filename.toUpperCase().indexOf(filename.toUpperCase()) > -1)(state.filelist),
+          item =>
+            item.filename.toUpperCase().indexOf(filename.toUpperCase()) > -1
+        )(state.filelist),
       }
     },
 
     remove(state, { payload: { hash } }) {
-      const _setVisible = (item) => {
+      const _setVisible = item => {
         if (item.hash === hash) {
           item.visible = false
         }

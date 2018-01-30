@@ -10,12 +10,12 @@ const props = {
   multiple: true,
   accept: 'image/*',
   showUploadList: {
-    showRemoveIcon: false
+    showRemoveIcon: false,
   },
   listType: 'picture',
   action: '/api/upload',
   headers: {
-    'X-Requested-With': null
+    'X-Requested-With': null,
   },
   beforeUpload(file) {
     const isPic = /^(?:image\/jpe?g|image\/png|image\/gif|image\/bmp)$/i.test(
@@ -31,12 +31,12 @@ const props = {
     }
 
     return isPass
-  }
+  },
 }
 
 class PictureUploader extends Component {
   state = {
-    fileList: this.props.uploadlist
+    fileList: this.props.uploadlist,
   }
 
   handleChange = ({ file, fileList }) => {
@@ -54,9 +54,9 @@ class PictureUploader extends Component {
               filename: name,
               visible: true,
               uid,
-              name
-            }
-          }
+              name,
+            },
+          },
         })
         message.success(`${file.name} file uploaded successfully.`, 3)
       } else if (response.status === 'error') {

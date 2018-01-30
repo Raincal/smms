@@ -49,8 +49,7 @@ const FileTable = ({
       render: (text, record) => (
         <Popconfirm
           title="Delete?"
-          onConfirm={() => onDelete(record.hash, record.filename)}
-        >
+          onConfirm={() => onDelete(record.hash, record.filename)}>
           <Button type="danger">Delete</Button>
         </Popconfirm>
       ),
@@ -71,7 +70,11 @@ const FileTable = ({
       dataSource={filteredFilelist(queryList)}
       columns={columns}
       locale={{
-        emptyText: <span><Icon type="frown-o" />No Data</span>,
+        emptyText: (
+          <span>
+            <Icon type="frown-o" />No Data
+          </span>
+        ),
       }}
     />
   )

@@ -7,18 +7,18 @@ const RouterConfig = ({ history, app }) => {
   const Home = dynamic({
     app,
     models: () => [import('./models/uploadlist')],
-    component: () => import('./routes/Home')
+    component: () => import('./routes/Home'),
   })
 
   const Dashboard = dynamic({
     app,
     models: () => [import('./models/dashboard'), import('./models/uploadlist')],
-    component: () => import('./routes/Dashboard')
+    component: () => import('./routes/Dashboard'),
   })
 
   const AboutPage = dynamic({
     app,
-    component: () => import('./routes/About')
+    component: () => import('./routes/About'),
   })
 
   return (

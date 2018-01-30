@@ -1,6 +1,6 @@
 {
   "name": "smms",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": {
     "name": "Raincal",
     "email": "cyj94228@gmail.com"
@@ -16,7 +16,8 @@
     "build": "roadhog build",
     "test": "roadhog test",
     "lint": "eslint --ext .js src test",
-    "precommit": "npm run lint"
+    "format": "prettier --write './{src,test,mock}/**/*.js'",
+    "precommit": "yarn format & yarn lint"
   },
   "dependencies": {
     "antd": "^3.1.6",
@@ -44,6 +45,7 @@
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.6.1",
     "husky": "^0.14.3",
+    "prettier": "^1.10.2",
     "redbox-react": "^1.5.0",
     "roadhog": "^2.2.0"
   }

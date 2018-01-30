@@ -21,10 +21,10 @@ function checkStatus(response) {
 
 export function getStatus(url) {
   return fetch(url)
-    .then((response) => {
+    .then(response => {
       return response.status
     })
-    .catch((err) => {
+    .catch(err => {
       if (err === 'TypeError: Failed to fetch') {
         return 404
       }

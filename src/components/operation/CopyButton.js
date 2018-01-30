@@ -8,7 +8,7 @@ const styles = {
 
 const CopyButton = ({ hasSelected, links, type, children }) => {
   let str = ''
-  links.map((link) => {
+  links.map(link => {
     link = type === 'markdown' ? `![smms](${link})` : link
     str += `${link}\n`
     return str
@@ -20,9 +20,7 @@ const CopyButton = ({ hasSelected, links, type, children }) => {
 
   return (
     <CopyToClipboard text={str} onCopy={onCopy} style={styles}>
-      <Button disabled={!hasSelected}>
-        {children}
-      </Button>
+      <Button disabled={!hasSelected}>{children}</Button>
     </CopyToClipboard>
   )
 }

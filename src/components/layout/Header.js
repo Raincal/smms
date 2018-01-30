@@ -23,8 +23,7 @@ const Header = () => (
       <a
         href="https://github.com/Raincal/smms"
         target="_blank"
-        rel="noopener noreferrer"
-      >
+        rel="noopener noreferrer">
         <Icon type="code-o" />
         Source Code
       </a>

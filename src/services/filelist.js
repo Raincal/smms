@@ -15,7 +15,7 @@ export function checkExist(data) {
 
 function _mappingVisible(item) {
   if (item.visible === undefined) {
-    getStatus(item.url).then((code) => {
+    getStatus(item.url).then(code => {
       if (code === 200) {
         item.visible = true
       } else if (code === 404) {

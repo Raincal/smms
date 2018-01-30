@@ -5,7 +5,9 @@ const PREFIX = 'https://ooo.0o0.ooo'
 
 const FileLink = ({ text, record }) => (
   <div>
-    <a href={`${PREFIX}${text}`} target="_blank" rel="noopener noreferrer">{text.slice(1)}</a>
+    <a href={`${PREFIX}${text}`} target="_blank" rel="noopener noreferrer">
+      {text.slice(1)}
+    </a>
     <CopyIcon
       placement="topRight"
       title="Copy link"

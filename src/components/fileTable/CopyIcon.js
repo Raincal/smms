@@ -30,12 +30,8 @@ class CopyIcon extends Component {
         placement={placement}
         title={title}
         arrowPointAtCenter
-        onVisibleChange={this.handleVisibleChange}
-      >
-        <CopyToClipboard
-          text={text}
-          onCopy={this.handleCopy}
-        >
+        onVisibleChange={this.handleVisibleChange}>
+        <CopyToClipboard text={text} onCopy={this.handleCopy}>
           <Icon
             type={copied ? 'check' : type}
             style={{

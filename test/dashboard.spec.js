@@ -13,13 +13,13 @@ describe('Dashboard Model', () => {
       const reducers = dashboard.reducers
       const reducer = reducers.save
       const state = {
-        filelist: []
+        filelist: [],
       }
       expect(
         reducer(state, {
           payload: {
-            data: [{ filename: 'smms' }]
-          }
+            data: [{ filename: 'smms' }],
+          },
         })
       ).toEqual({ filelist: [{ filename: 'smms' }] })
     })

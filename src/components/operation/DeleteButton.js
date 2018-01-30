@@ -29,8 +29,7 @@ const DeleteButton = ({
       type="danger"
       style={styles}
       disabled={!hasSelected}
-      onClick={showConfirm}
-    >
+      onClick={showConfirm}>
       Delete
     </Button>
   )

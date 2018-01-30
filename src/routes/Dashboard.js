@@ -41,12 +41,14 @@ const Dashboard = ({ location, dispatch, dashboard, loading }) => {
       })
     },
     onFilterChange(fields) {
-      dispatch(routerRedux.push({
-        pathname: location.pathname,
-        query: {
-          ...fields,
-        },
-      }))
+      dispatch(
+        routerRedux.push({
+          pathname: location.pathname,
+          query: {
+            ...fields,
+          },
+        })
+      )
     },
   }
 
@@ -58,4 +60,6 @@ const Dashboard = ({ location, dispatch, dashboard, loading }) => {
   )
 }
 
-export default connect(({ dashboard, loading }) => ({ dashboard, loading }))(Dashboard)
+export default connect(({ dashboard, loading }) => ({ dashboard, loading }))(
+  Dashboard
+)

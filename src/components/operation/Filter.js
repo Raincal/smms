@@ -5,10 +5,7 @@ const Search = Input.Search
 
 const Filter = ({
   onFilterChange,
-  form: {
-    getFieldDecorator,
-    getFieldsValue,
-  },
+  form: { getFieldDecorator, getFieldsValue },
 }) => {
   const handleSubmit = () => {
     const fields = getFieldsValue()
@@ -18,10 +15,8 @@ const Filter = ({
   return (
     <div>
       {getFieldDecorator('filename', { initialValue: '' })(
-        <Search
-          placeholder="Search Filename"
-          onSearch={handleSubmit}
-        />)}
+        <Search placeholder="Search Filename" onSearch={handleSubmit} />
+      )}
     </div>
   )
 }
