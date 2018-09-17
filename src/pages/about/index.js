@@ -1,6 +1,4 @@
-import React from 'react'
-
-import styles from './About.less'
+import styles from './index.less'
 
 const About = () => (
   <div className={styles.about}>

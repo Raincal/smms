@@ -1,7 +1,6 @@
-import React from 'react'
 import CopyIcon from './CopyIcon'
 
-const PREFIX = 'https://ooo.0o0.ooo'
+const PREFIX = 'https://i.loli.net'
 
 const FileLink = ({ text, record }) => (
   <div>

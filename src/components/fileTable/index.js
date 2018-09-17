@@ -1,4 +1,3 @@
-import React from 'react'
 import format from 'date-fns/format'
 import { Table, Popconfirm, Button, Icon } from 'antd'
 
@@ -21,7 +20,7 @@ const FileTable = ({
       key: 'filename',
     },
     {
-      title: 'Url ( Domain: https://ooo.0o0.ooo )',
+      title: 'Url ( Domain: i.loli.net )',
       dataIndex: 'path',
       key: 'url',
       render: (text, record) => <FileLink text={text} record={record} />,

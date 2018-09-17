@@ -1,18 +1,18 @@
-import React from 'react'
+import withRouter from 'umi/withRouter'
 
 import Header from './Header'
 import Footer from './Footer'
 
-import styles from './MainLayout.less'
+import styles from './index.less'
 
-const MainLayout = ({ children }) => {
+const BasicLayout = ({ children, location }) => {
   return (
     <div className={styles.layout}>
-      <Header />
+      <Header location={location}/>
       <div className={styles.content}>{children}</div>
       <Footer />
     </div>
   )
 }
 
-export default MainLayout
+export default withRouter(BasicLayout)

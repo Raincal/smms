@@ -1,3 +1,6 @@
 {
-  "extends": "umi"
+  "extends": "eslint-config-umi",
+  "rules": {
+    "semi": ["error", "never"]
+  }
 }

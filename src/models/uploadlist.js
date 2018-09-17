@@ -2,8 +2,6 @@ import _ from 'lodash/fp'
 import { loadLocalState } from '../utils/localForage'
 
 export default {
-  namespace: 'uploadlist',
-
   state: [],
 
   reducers: {
@@ -35,7 +33,8 @@ export default {
     setup({ dispatch, history }) {
       return history.listen(({ pathname }) => {
         if (pathname === '/' || '/dashboard') {
-          const uploadlist = loadLocalState('smms:uploadlist')
+          let { uploadlist } = loadLocalState('smms:uploadlist')
+          uploadlist = typeof uploadlist === 'string' ? JSON.parse(uploadlist) : []
           dispatch({
             type: 'init',
             payload: {

@@ -16,10 +16,10 @@ export const loadLocalState = item => {
   try {
     const serializedState = localStorage.getItem(item)
     if (serializedState === null) {
-      return []
+      return {}
     }
     return JSON.parse(serializedState)
   } catch (err) {
-    return []
+    return {}
   }
 }

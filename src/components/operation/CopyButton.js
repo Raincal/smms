@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button, message } from 'antd'
 import CopyToClipboard from 'react-copy-to-clipboard'
 

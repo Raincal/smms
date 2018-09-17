@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button, Modal } from 'antd'
 
 const confirm = Modal.confirm
