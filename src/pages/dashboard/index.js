@@ -1,11 +1,10 @@
-import React from 'react'
 import { connect } from 'dva'
-import { routerRedux } from 'dva/router'
 import _ from 'lodash/fp'
-import queryString from 'query-string'
+import router from 'umi/router'
 
-import FileTable from '../components/fileTable'
-import Operation from '../components/operation'
+import FileTable from '../../components/fileTable'
+import Operation from '../../components/operation'
+
 
 const Dashboard = ({ location, dispatch, dashboard, loading }) => {
   const { queryList, selectedRowKeys, selectedRows } = dashboard
@@ -42,24 +41,19 @@ const Dashboard = ({ location, dispatch, dashboard, loading }) => {
       })
     },
     onFilterChange(fields) {
-      const search = queryString.stringify(fields)
-      dispatch(
-        routerRedux.push({
-          pathname: location.pathname,
-          search,
-        })
-      )
+      router.push({
+        pathname: location.pathname,
+        query: fields,
+      })
     },
   }
 
   return (
-    <div>
+    <>
       <Operation {...operationProps} />
       <FileTable {...filelistProps} />
-    </div>
+    </>
   )
 }
 
-export default connect(({ dashboard, loading }) => ({ dashboard, loading }))(
-  Dashboard
-)
+export default connect(({ dashboard, loading }) => ({ dashboard, loading }))(Dashboard)

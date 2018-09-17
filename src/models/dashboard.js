@@ -1,14 +1,11 @@
 import _ from 'lodash/fp'
 import { message } from 'antd'
-import queryString from 'query-string'
 
 import * as fileService from '../services/filelist'
-import { loadState, loadLocalState } from '../utils/localForage'
+import { loadState } from '../utils/localForage'
 import { parseHTML } from '../utils'
 
 export default {
-  namespace: 'dashboard',
-
   state: {
     filelist: [],
     queryList: [],
@@ -70,15 +67,15 @@ export default {
 
   effects: {
     fetch: [
-      function* fetch({ payload: { query } }, { call, put }) {
-        const uploadlist = yield loadLocalState('smms:uploadlist')
-        const { filelist = [] } = yield loadState('smms:dashboard')
+      function*({ payload: { query } }, { call, put }) {
+        const { dashboard } = yield loadState('smms:dashboard')
+        const filelist = JSON.parse(dashboard).filelist || []
         const { data: { data } } = yield call(fileService.fetch)
         const responseData = data || []
         yield put({
           type: 'save',
           payload: {
-            data: [...uploadlist, ...filelist, ...responseData],
+            data: [...filelist, ...responseData],
           },
         })
         yield put({
@@ -116,8 +113,7 @@ export default {
 
   subscriptions: {
     setup({ dispatch, history }) {
-      return history.listen(({ pathname, search }) => {
-        const query = queryString.parse(search)
+      return history.listen(({ pathname, query }) => {
         if (pathname === '/dashboard') {
           dispatch({
             type: 'fetch',

@@ -1,9 +1,8 @@
-import React from 'react'
 import { Menu, Icon } from 'antd'
-import { Link } from 'dva/router'
+import Link from 'umi/link'
 
-const Header = () => (
-  <Menu selectedKeys={[global.location.pathname]} mode="horizontal">
+const Header = ({location}) => (
+  <Menu selectedKeys={[location.pathname]} mode="horizontal" style={{ overflow: "hidden" }}>
     <Menu.Item key="/">
       <Link to="/">
         <Icon type="home" />Home
