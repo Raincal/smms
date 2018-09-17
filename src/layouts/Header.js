@@ -3,9 +3,9 @@ import Link from 'umi/link'
 
 const MENUS = [
   { path: '/', icon: 'home', text: 'Home' },
-  { path: '/dashboard', icon: 'laptop', text: 'Dashboard' },
+  { path: '/dashboard', icon: 'dashboard', text: 'Dashboard' },
   { path: '/about', icon: 'appstore-o', text: 'About' },
-  { path: '/github', icon: 'code-o', text: 'Source Code' },
+  { path: '/github', icon: 'github', text: 'Source Code' },
 ]
 
 const Header = ({ location }) => (

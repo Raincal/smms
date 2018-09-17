@@ -1,4 +1,6 @@
 // ref: https://umijs.org/config/
+import path from 'path'
+
 export default {
   proxy: {
     '/api': {
@@ -9,6 +11,9 @@ export default {
   },
   hash: true,
   extraBabelPlugins: ['lodash'],
+  alias: {
+    '@ant-design/icons/lib/dist$': path.resolve(__dirname, './src/icons.js'),
+  },
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     [
